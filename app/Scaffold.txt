@@ -1,0 +1,20 @@
+
+	root
+		|-/lib
+			|-/[dependencies] (/angular, /angular-mocks, /bootstrap, /etc)	# from bower
+		|-/src																
+			|-/[unreferenced directories] (/js, /css, /views)				# not referenced anywhere
+			|-app.js														# sets up angular.module('app', ...)
+			|-globals.js													# may be referenced in RequireJS main file; not used.
+			|-index.html													# loads bootstrap.css and RequireJS main file
+			|-main.js														# .config + require(['app', 'etc'])
+			|-routeMap.js													# sets up a single route
+			|-test-file.js													# *** simple define(function(){ return {...}; })
+		|-/test
+			|-/spec
+				|-test-test-file.js											# *** require || define(['test-file'])
+		|-.bowerrc															# { "directory": "lib" }
+		|-bower.json														# standard format
+		|-karma.conf.js														# *** HELP!
+		|-test-main.js														# *** Save Our Souls!!!
+		

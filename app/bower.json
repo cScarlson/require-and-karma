@@ -1,0 +1,22 @@
+{
+  "name": "ng-karma",
+  "version": "0.0.0",
+  "authors": [
+    "cScarlson <otocarlson@gmail.com>"
+  ],
+  "dependencies": {
+	"requirejs": "*",
+	"requirejs-text": "*",
+	"angular": "*",
+	"angular-route": "*",
+	"angular-resource": "*",
+	"jQuery": "*",
+	"bootstrap": "*",
+	"fontawesome": "*"
+  },
+  "devDependencies": {
+	"angular-mocks": "*"
+  },
+  "license": "MIT",
+  "private": true
+}
