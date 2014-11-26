@@ -1,7 +1,7 @@
 
 console.log('Included test-file_test.js');
 
-define(['testFile'], function(getTestFileModule){
+define(['test-file'], function(getTestFileModule){
 	var testFile = getTestFileModule({
 		app: (new (function Application(){ this.module = {}; })()),
 		globals: (new (function Globals(){ this.some = 'thing'; })())
@@ -16,7 +16,7 @@ define(['testFile'], function(getTestFileModule){
 			expect(testFile.multiplyBy8(8)).toEqual(64);
 			expect(testFile.multiplyBy8(8)).not.toEqual(8);
 			
-			//expect(testFile.multiplyBy8(8)).not.toEqual(64);
+			expect(testFile.multiplyBy8(8)).not.toEqual(64);
 		});
 		
 	});

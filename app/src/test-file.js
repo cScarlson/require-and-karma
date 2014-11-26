@@ -1,5 +1,5 @@
 
-define('testFile', [], function(){
+define(function(){
 	
 	return function init(sandbox){
 		var app, application = app = sandbox.app

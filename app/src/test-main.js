@@ -17,7 +17,7 @@ Object.keys(window.__karma__.files).forEach(function(file) {
 /**/
 
 /**/
-var tests = [];
+var allTestFiles = [];
 for (var file in window.__karma__.files) {
     if (/_test\.js$/.test(file)) {
         tests.push(file);
@@ -33,9 +33,7 @@ require.config({
 	shim: {},
 
 	// dynamically load all test files
-	//deps: allTestFiles,
-	//
-	deps: tests,
+	deps: allTestFiles,
 
 	// we have to kickoff jasmine, as it is asynchronous
 	callback: window.__karma__.start
