@@ -41,16 +41,4 @@ require.config({
 	callback: window.__karma__.start
 });
 
-/*
-require(['test'], function(test){
-	console.log('...require(["test"])');
-	console.log('...require(["test"])');
-	console.log('...require(["test"])');
-	console.log('...require(["test"])');
-	console.log('...require(["test"])');
-	console.log('...require(["test"])');
-	console.log('Attempted to fetch test-test-file.js using require(...)', test);
-});
-*/
-
 
