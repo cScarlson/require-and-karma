@@ -41,11 +41,16 @@ var mediator = (function Mediator(){
 	};
 })();
 
+
+/**
+ * Mediator with .on() & .emit()
+ */
 var mediator = (new (function ApplicationMediator(){
 	var thus = this;
 	
 	var Mediator = (function(){
 		return function Mediator(){
+      
 			function subscribe(channel, fn){
 				if(!this.channels[channel]){ this.channels[channel] = []; }
 				var subscription = { context: this, callback: fn };
@@ -75,18 +80,54 @@ var mediator = (new (function ApplicationMediator(){
 				
 				return this;
 			}
+      
+			function addListener(event, fn){
+				this.subscribe(event, fn);
+				return this;
+			}
+      
+			function dispatchEvent(event){
+				console.log('.....', event);
+				if(!event){ return false }
+				this.publish(event.type, event.detail);
+				return this;
+			}
 			
 			this.channels = {};
 			this.subscribe = subscribe;
 			this.publish = publish;
 			this.installTo = installTo;
+			this.on = addListener;
+			this.emit = dispatchEvent;
 			
 			return this;
 		};
 	})();
 	
-	return Mediator.call(this);
+  return Mediator.apply(this);
 })());
+
+//console.log('@#mediator', mediator);
+
+var obj = { name: 'Bob' };
+
+mediator.installTo(obj);
+
+obj.on('change://moduleA/:name', function(name){
+	console.log('A', this.name, '|', name);
+	this.name = name;
+	console.log('B', this.name);
+});
+
+(function(){
+
+	obj.name = 'New Name';
+
+	obj.emit(new CustomEvent('change://moduleA/:name', {
+		detail: obj.name
+	}));
+
+})();
 
 
 
