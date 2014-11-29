@@ -119,6 +119,9 @@ obj.on('change://moduleA/:name', function(name){
 	console.log('B', this.name);
 });
 
+mediator.on('get://moduleB/:name', function(name){});
+mediator.on('get://moduleB', function(moduleB){});
+
 (function(){
 
 	obj.name = 'New Name';
